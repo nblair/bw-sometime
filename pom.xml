@@ -22,6 +22,7 @@
 		<module>sched-assist-war</module>
 		<module>sched-assist-portlet</module>
 		<module>sched-assist-spi-caldav-integrationtest</module>
+		<module>sometime-database</module>
 	</modules>
 
 	<issueManagement>
@@ -43,6 +44,7 @@
 	</developers>
 
 	<properties>
+		<flywaydb.version>3.1</flywaydb.version>
 		<hsqldb.version>2.2.9</hsqldb.version>
 		<jasig.resourceserver.version>1.0.24</jasig.resourceserver.version>
 		<slf4j.version>1.6.6</slf4j.version>
@@ -121,9 +123,19 @@
 				<version>2.1.0</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+			<dependency>
 				<groupId>net.sf.opencsv</groupId>
 				<artifactId>opencsv</artifactId>
 				<version>2.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-core</artifactId>
+				<version>${flywaydb.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -459,6 +471,11 @@
 					<configuration>
 						<skip>true</skip>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.flywaydb</groupId>
+					<artifactId>flyway-maven-plugin</artifactId>
+					<version>${flywaydb.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
