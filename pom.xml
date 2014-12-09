@@ -22,7 +22,7 @@
 		<module>sched-assist-war</module>
 		<module>sched-assist-portlet</module>
 		<module>sched-assist-spi-caldav-integrationtest</module>
-		<module>sometime-database</module>
+		<module>bw-sometime-database</module>
 	</modules>
 
 	<issueManagement>
