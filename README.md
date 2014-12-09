@@ -1,5 +1,7 @@
 ## Bedework Sometime
 
+[![Build Status](https://travis-ci.org/Bedework/bw-sometime.svg?branch=master)](https://travis-ci.org/Bedework/bw-sometime)
+
 Bedework Sometime is an online calendar application that provides unique appointment scheduling capabilities. 
 
 This project is a fork of the [Jasig Scheduling Assistant](https://wiki.jasig.org/display/SA/Home).
