@@ -81,7 +81,7 @@ public final class DelegateAuthenticationSuccessHandler implements Authenticatio
 			HttpServletResponse response, Authentication authentication)
 	throws IOException, ServletException {
 
-		Collection<GrantedAuthority> authorities = authentication.getAuthorities();
+		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		if(authorities.contains(SecurityConstants.DELEGATE_OWNER)) {
 			// redirect to delegateOwnerTarget
 			this.redirectStrategy.sendRedirect(request, response, this.delegateOwnerTarget);
