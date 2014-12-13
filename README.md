@@ -23,8 +23,11 @@ This project uses Apache Maven; run 'mvn install' to perform the default build.
 
 ### Running
 
-The application is configured by default to connect to a Bedework Quickstart running on the same host. To start
-Bedework Sometime, simply execute:
+The application is configured by default to connect to a Bedework Quickstart (3.10.x) instance running on the same host. 
+Before you run Sometime, you must have at a minimum the ApacheDS LDAP directory provided by the quickstart running. You can
+find the directions for starting up the Bedework Quickstart [on the Bedework wiki](https://wiki.jasig.org/display/BWK310/Running+Bedework).
+
+To start Bedework Sometime, simply execute:
 
 > mvn install jetty:run
 
