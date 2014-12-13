@@ -21,12 +21,10 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>2.5.6.SEC02</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc-portlet</artifactId>
-			<version>2.5.6.SEC02</version>
 		</dependency>
 
 		<dependency>
@@ -135,55 +133,5 @@
 		</dependency>
 		<!-- END runtime dependencies -->
 	</dependencies>
-	<build>
-		<finalName>scheduling-assistant-portlet</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<attachClasses>true</attachClasses>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	
-	<profiles>
-		<profile>
-			<id>tomcat6</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-war-plugin</artifactId>
-						<version>2.1.1</version>
-						<configuration>
-							<attachClasses>true</attachClasses>
-							<webXml>${pom.basedir}/target/jspweb.xml</webXml>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo.jspc</groupId>
-						<artifactId>jspc-maven-plugin</artifactId>
-						<version>2.0-alpha-3</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>compile</goal>
-								</goals>
-							</execution>
-						</executions>
-						<dependencies>
-							<dependency>
-								<groupId>org.codehaus.mojo.jspc</groupId>
-								<artifactId>jspc-compiler-tomcat6</artifactId>
-								<version>2.0-alpha-3</version>
-							</dependency>
-						</dependencies>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+
 </project>

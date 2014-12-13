@@ -31,7 +31,8 @@
 		http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
-	<context:property-placeholder location="classpath:/scheduling-assistant.properties"/>
+	<context:property-placeholder location="classpath:/scheduling-assistant-default.properties" />
+	<context:property-placeholder location="classpath:/scheduling-assistant.properties" ignore-resource-not-found="true"/>
 	
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="alwaysUseMessageFormat" value="true" />
@@ -65,7 +66,7 @@
 	<!-- begin section 1: database and owner components -->
 	<bean id="ownerAuthorization" class="org.jasig.schedassist.impl.owner.DefaultOwnerAuthorizationImpl"/>
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="java:comp/env/jdbc/SchedulingAssistantDatabase" />
+		<property name="jndiName" value="jdbc/SchedulingAssistantDatabase" />
 	</bean>
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
   		<property name="dataSource" ref="dataSource"/>

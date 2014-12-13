@@ -133,5 +133,13 @@ public class DelegatingResource implements Resource {
 	public long lastModified() throws IOException {
 		return this.resource.lastModified();
 	}
+	/*
+	 * (non-Javadoc)
+	 * @see org.springframework.core.io.Resource#contentLength()
+	 */
+	@Override
+	public long contentLength() throws IOException {
+		return this.resource.contentLength();
+	}
 
 }

@@ -12,9 +12,6 @@
 	<name>Scheduling Assistant SPI: CalDAV</name>
 	<description>Scheduling Assistant Service Provider implementations specific for CalDAV capable Calendaring Servers (e.g. Bedework).</description>
 
-	<properties>
-		<spring.framework.version>3.0.5.RELEASE</spring.framework.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<artifactId>sched-assist-spi</artifactId>
@@ -24,17 +21,14 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.framework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${spring.framework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.framework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -62,7 +56,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.framework.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
