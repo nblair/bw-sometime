@@ -7,7 +7,7 @@
 		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>bw-sometime-database</artifactId>
-	<name>Sometime Database</name>
+	<name>Bedework Sometime Database</name>
 	<description>Module containing source for creating the Bedework Sometime database.</description>
 	
 	<properties>
