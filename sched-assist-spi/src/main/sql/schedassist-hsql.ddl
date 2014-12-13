@@ -20,7 +20,8 @@ create table schedules (
 	end_time timestamp not null,
 	visitor_limit integer not null,
 	meeting_location varchar (128),
-	CONSTRAINT fk_sched_owner FOREIGN KEY (owner_id) REFERENCES owners(internal_id) ON DELETE CASCADE
+	CONSTRAINT fk_sched_owner FOREIGN KEY (owner_id) REFERENCES owners(internal_id) ON DELETE CASCADE,
+	CONSTRAINT block_unique UNIQUE (owner_id, start_time, end_time)
 );
 
 create table preferences (
@@ -36,10 +37,6 @@ create table owner_adhoc_authz (
 	visitor_username varchar (32) not null,
 	CONSTRAINT adhoc_unique UNIQUE (owner_username, visitor_username)
 );
-
-create unique index schedules_unique_idx 
-		on schedules
-		(owner_id, start_time, end_time);
 		
 create table advisorlist (
 	advisor_emplid varchar (16) not null,

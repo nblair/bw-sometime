@@ -1,4 +1,3 @@
-drop index schedules_unique_idx;
 drop table reflect_locks;
 drop table owner_adhoc_authz;
 drop table event_statistics;
