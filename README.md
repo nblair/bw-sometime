@@ -12,7 +12,7 @@ This application expects to integrate with your Enterprise Calendar. The default
 
 ### Building
 
-This application targets JDK 6 for build and at runtime. It is compatible with JDK 7.
+This application targets JDK 7 for build and runtime. 
 
 This project uses Apache Maven; run 'mvn install' to perform the default build.
 
@@ -20,5 +20,18 @@ This project uses Apache Maven; run 'mvn install' to perform the default build.
 
 * sched-assist-war is the primary web application targeting Servlet 2.5 API compatible containers.
 * sched-assist-portlet is an optional JSR-168 Portlet suitable for use in a Portlet 1.0 container.
+
+### Running
+
+The application is configured by default to connect to a Bedework Quickstart running on the same host. To start
+Bedework Sometime, simply execute:
+
+> mvn install jetty:run
+
+If you would like to connect a debugger, use the following command instead:
+
+> mvn install jetty:run-forked
+
+You can connect your debugger to port 18888.
 
 

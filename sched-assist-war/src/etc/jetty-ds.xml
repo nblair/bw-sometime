@@ -1,0 +1,23 @@
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure id="wac" class="org.eclipse.jetty.webapp.WebAppContext">
+  	<New id="SchedulingAssistantDatabase" class="org.eclipse.jetty.plus.jndi.Resource">
+	   <Arg></Arg>
+	   <Arg>jdbc/SchedulingAssistantDatabase</Arg>
+	   <Arg>
+	     <New class="com.zaxxer.hikari.HikariDataSource">
+	       <Arg>
+	          <New class="com.zaxxer.hikari.HikariConfig">
+	             <Set name="minimumIdle">1</Set>
+	             <Set name="maximumPoolSize">4</Set>
+	             <Set name="driverClassName">org.hsqldb.jdbc.JDBCDriver</Set>
+	             <Set name="username">sa</Set>
+	             <Set name="password"></Set>
+	             <!--  <Set name="jdbcUrl">jdbc:hsqldb:file:target/dnumberds;shutdown=true</Set> -->
+	             <Set name="jdbcUrl">jdbc:hsqldb:hsql://localhost:9998/schedassistdb</Set>
+	          </New>
+	       </Arg>
+	    </New>
+	  </Arg>
+	</New>
+</Configure>
+
