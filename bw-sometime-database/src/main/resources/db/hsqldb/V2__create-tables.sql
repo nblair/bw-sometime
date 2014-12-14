@@ -1,10 +1,3 @@
-create sequence ownerid_seq
-		start with 1 increment by 1;
-create sequence eventid_seq
-		start with 1 increment by 1;
-create sequence reminderid_seq
-		start with 1 increment by 1;
-
 create table owners (
 	internal_id integer not null,
 	external_unique_id varchar (32) not null,
@@ -37,7 +30,7 @@ create table owner_adhoc_authz (
 	visitor_username varchar (32) not null,
 	CONSTRAINT adhoc_unique UNIQUE (owner_username, visitor_username)
 );
-		
+
 create table advisorlist (
 	advisor_emplid varchar (16) not null,
 	advisor_relationship varchar (64) not null,

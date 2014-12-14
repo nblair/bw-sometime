@@ -6,16 +6,15 @@ package org.jasig.schedassist.impl.owner;
 import javax.sql.DataSource;
 
 import org.apache.commons.io.IOUtils;
+import org.flywaydb.core.Flyway;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
  * Base class for Test classes that need a database initialized with tables/sequences.
@@ -34,10 +33,11 @@ public abstract class NeedsTestDatabase extends AbstractJUnit4SpringContextTests
 	 */
 	@Before
 	public void createDatabase() throws Exception {
-		Resource createDdl = (Resource) this.applicationContext.getBean("createDdl");
+		Flyway flyway = new Flyway();
+		flyway.setDataSource((DataSource) this.applicationContext.getBean("dataSource"));
+		flyway.setLocations("db/hsqldb");
 		
-		SimpleJdbcTemplate template = new SimpleJdbcTemplate((DataSource) this.applicationContext.getBean("dataSource"));
-		SimpleJdbcTestUtils.executeSqlScript(template, createDdl, false);
+		flyway.migrate();
 		afterCreate();
 	}
 	
@@ -53,6 +53,8 @@ public abstract class NeedsTestDatabase extends AbstractJUnit4SpringContextTests
 		JdbcTemplate template = new JdbcTemplate((DataSource) this.applicationContext.getBean("dataSource"));
 		template.execute(sql);
 		
+		// also drop flyway's table so #createDatabase will run again
+		template.execute("drop table \"schema_version\" if exists;");
 		afterDestroy();
 	}
 	

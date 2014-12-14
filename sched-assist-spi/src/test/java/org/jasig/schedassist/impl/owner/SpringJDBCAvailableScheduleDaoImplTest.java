@@ -26,8 +26,6 @@ import java.util.Date;
 import java.util.Set;
 import java.util.SortedSet;
 
-import junit.framework.Assert;
-
 import org.apache.commons.lang.time.DateUtils;
 import org.jasig.schedassist.model.AvailableBlock;
 import org.jasig.schedassist.model.AvailableBlockBuilder;
@@ -38,6 +36,7 @@ import org.jasig.schedassist.model.IScheduleOwner;
 import org.jasig.schedassist.model.InputFormatException;
 import org.jasig.schedassist.model.MeetingDurations;
 import org.jasig.schedassist.model.Preferences;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

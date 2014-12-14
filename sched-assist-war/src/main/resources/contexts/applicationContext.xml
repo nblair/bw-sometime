@@ -46,10 +46,11 @@
     </bean>
     
 	<!-- available-web applicationContext -->
-	<context:annotation-config base-package="org.jasig.schedassist"/>
+	<context:annotation-config/>
 	<context:component-scan base-package="org.jasig.schedassist">
 		<context:exclude-filter type="regex" expression="org.jasig.schedassist.web.*"/>
 	</context:component-scan>
+	<context:component-scan base-package="org.bedework.sometime.web.configuration"/>
 	<ehcache:annotation-driven create-missing-caches="true"/>
     
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -71,21 +72,6 @@
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
   		<property name="dataSource" ref="dataSource"/>
 	</bean> 
-	<bean id="ownerIdSequence" class="org.springframework.jdbc.support.incrementer.HsqlSequenceMaxValueIncrementer">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="incrementerName" value="ownerid_seq"/>
-		<qualifier value="owners"/>
-	</bean>
-	<bean id="eventIdSequence" class="org.springframework.jdbc.support.incrementer.HsqlSequenceMaxValueIncrementer">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="incrementerName" value="eventid_seq"/>
-		<qualifier value="statistics"/>
-	</bean>
-	<bean id="reminderIdSequence" class="org.springframework.jdbc.support.incrementer.HsqlSequenceMaxValueIncrementer">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="incrementerName" value="reminderid_seq"/>
-		<qualifier value="reminders"/>
-	</bean>
 	<tx:annotation-driven transaction-manager="txManager" />
 	<!-- end section 1: database -->
 

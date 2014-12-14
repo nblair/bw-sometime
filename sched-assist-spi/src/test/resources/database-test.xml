@@ -39,10 +39,11 @@
 	<bean class="org.jasig.schedassist.impl.owner.AlwaysTrueOwnerAuthorizationImpl"/>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
-		<property name="driverClassName"><value>org.hsqldb.jdbcDriver</value></property>
-		<property name="url"><value>jdbc:hsqldb:mem:storagedb;shutdown=true </value></property>
-		<property name="username"><value>SA</value></property>
+		<property name="driverClassName"><value>org.hsqldb.jdbc.JDBCDriver</value></property>
+		<property name="url"><value>jdbc:hsqldb:mem:storagedb;shutdown=true</value></property>
+		<property name="username"><value>sa</value></property>
 		<property name="password"><value></value></property>
+		<property name="suppressClose" value="true"/>
 	</bean>
 	<bean id="ownerIdSequenceGenerator" class="org.springframework.jdbc.support.incrementer.HsqlSequenceMaxValueIncrementer">
 		<property name="dataSource" ref="dataSource"/>
@@ -60,9 +61,6 @@
 		<qualifier value="reminders"/>
 	</bean>  
 	
-	<bean id="createDdl" class="org.springframework.core.io.ClassPathResource">
-		<constructor-arg><value>schedassist-hsql.ddl</value></constructor-arg>
-	</bean>
 	<bean id="destroyDdl" class="org.springframework.core.io.ClassPathResource">
 		<constructor-arg><value>schedassist-hsql-destroy.ddl</value></constructor-arg>
 	</bean>

@@ -12,7 +12,7 @@
 	<description>The primary Scheduling Assistant web application.</description>
 
 	<properties>
-		<activeProfiles>db-migration</activeProfiles>
+		<activeProfiles>db-migration,hsqldb</activeProfiles>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -22,6 +22,11 @@
 		<dependency>
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.bedework.sometime</groupId>
+			<artifactId>bw-sometime-database</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

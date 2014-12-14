@@ -1,40 +1,3 @@
-/**
- * Licensed to Jasig under one or more contributor license
- * agreements. See the NOTICE file distributed with this work
- * for additional information regarding copyright ownership.
- * Jasig licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file
- * except in compliance with the License. You may obtain a
- * copy of the License at:
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
-create sequence ownerid_seq
-        start with 1
-        NO MAXVALUE
-        NO CYCLE
-;
-
-create sequence eventid_seq
-        start with 1
-        NO MAXVALUE
-        NO CYCLE
-;
-
-create sequence reminderid_seq
-        start with 1
-        NO MAXVALUE
-        NO CYCLE
-;
-
 create table owners (
 	internal_id integer not null,
 	external_unique_id varchar (32) not null,
@@ -50,7 +13,8 @@ create table schedules (
 	end_time timestamp not null,
 	visitor_limit integer not null,
 	meeting_location varchar (128),
-	CONSTRAINT fk_sched_owner FOREIGN KEY (owner_id) REFERENCES owners(internal_id) ON DELETE CASCADE
+	CONSTRAINT fk_sched_owner FOREIGN KEY (owner_id) REFERENCES owners(internal_id) ON DELETE CASCADE,
+	CONSTRAINT block_unique UNIQUE (owner_id, start_time, end_time)
 );
 
 create table preferences (
@@ -66,10 +30,6 @@ create table owner_adhoc_authz (
 	visitor_username varchar (32) not null,
 	CONSTRAINT adhoc_unique UNIQUE (owner_username, visitor_username)
 );
-
-create unique index schedules_unique_idx 
-		on schedules
-		(owner_id, start_time, end_time);
 		
 create table advisorlist (
 	advisor_emplid varchar (16) not null,
