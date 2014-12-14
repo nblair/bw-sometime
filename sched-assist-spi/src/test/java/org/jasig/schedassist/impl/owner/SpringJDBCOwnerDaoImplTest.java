@@ -21,22 +21,13 @@ package org.jasig.schedassist.impl.owner;
 
 import java.util.Map;
 
-import javax.sql.DataSource;
-
-import org.apache.commons.io.IOUtils;
 import org.jasig.schedassist.model.ICalendarAccount;
 import org.jasig.schedassist.model.IScheduleOwner;
 import org.jasig.schedassist.model.MeetingDurations;
 import org.jasig.schedassist.model.Preferences;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
  * Test harness for {@link SpringJDBCOwnerDaoImpl}.
@@ -282,33 +273,5 @@ public class SpringJDBCOwnerDaoImplTest extends NeedsTestDatabase {
 		Assert.assertEquals(updated.getId(), target.getId());
 		Assert.assertEquals(updated.getPreferredLocation(), target.getPreferredLocation());
 		Assert.assertEquals(updatedUser.getUsername(), target.getCalendarAccount().getUsername());
-	}
-	
-	/**
-	 * 
-	 * @throws Exception
-	 */
-	@Before
-	public void createDatabase() throws Exception {
-		Resource createDdl = (Resource) this.applicationContext.getBean("createDdl");
-		
-		SimpleJdbcTemplate template = new SimpleJdbcTemplate((DataSource) this.applicationContext.getBean("dataSource"));
-		SimpleJdbcTestUtils.executeSqlScript(template, createDdl, false);
-	}
-	
-	/**
-	 * 
-	 * @throws Exception
-	 */
-	@After
-	public void destroyDatabase() throws Exception {
-		Resource destroyDdl = (Resource) this.applicationContext.getBean("destroyDdl");
-		
-		String sql = IOUtils.toString(destroyDdl.getInputStream());
-		JdbcTemplate template = new JdbcTemplate((DataSource) this.applicationContext.getBean("dataSource"));
-		template.execute(sql);
-		
-		// always clear the CalendarUserDao in case a mock was temporarily set
-		ownerDao.setCalendarAccountDao(null);
 	}
 }
