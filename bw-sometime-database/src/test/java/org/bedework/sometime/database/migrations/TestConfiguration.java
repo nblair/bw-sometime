@@ -20,7 +20,7 @@ class TestConfiguration {
 		SingleConnectionDataSource dataSource = new SingleConnectionDataSource("jdbc:hsqldb:mem:bw", "sa", "", true);
 		Flyway flyway = new Flyway();
 		flyway.setDataSource(dataSource);
-		flyway.setLocations("db/migration", "db/hsqldb");
+		flyway.setLocations("db/hsqldb", "db/migration");
 		return flyway;
 	}
 }
