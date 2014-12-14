@@ -12,8 +12,7 @@
 	             <Set name="driverClassName">org.hsqldb.jdbc.JDBCDriver</Set>
 	             <Set name="username">sa</Set>
 	             <Set name="password"></Set>
-	             <!--  <Set name="jdbcUrl">jdbc:hsqldb:file:target/dnumberds;shutdown=true</Set> -->
-	             <Set name="jdbcUrl">jdbc:hsqldb:hsql://localhost:9998/schedassistdb</Set>
+	             <Set name="jdbcUrl">jdbc:hsqldb:file:target/schedassistdb;shutdown=true</Set>
 	          </New>
 	       </Arg>
 	    </New>
