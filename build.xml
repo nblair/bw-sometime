@@ -69,7 +69,7 @@
 		<java fork="true" spawn="${spawn}" maxmemory="96M" classname="org.hsqldb.server.Server" failonerror="${failonerror}">
 			<classpath refid="hsql.classpath" />	
 			<arg value="--database.0" />
-			<arg value="${hsql.data.directory}/schedassistdb;hsqldb.tx=mvcc" />
+			<arg value="${hsql.data.directory}/schedassistdb" />
 			<arg value="--dbname.0" />
 			<arg value="schedassistdb" />
 			<arg value="--address" />
