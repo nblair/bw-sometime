@@ -40,10 +40,11 @@ import org.springframework.transaction.annotation.Transactional;
  * specified in the <i>org.jasig.schedassist.impl.InitializeAvailableDatabase.CONFIG</i>
  * {@link System} property.
  * The default value for this property is "database-SAMPLE.xml" (root package on the classpath).
- *  
- * @author Nicholas Blair, nblair@doit.wisc.edu
- * @version $Id: InitializeAvailableDatabase.java 2104 2010-05-11 17:46:01Z npblair $
+ * 
+ * @deprecated Flyway is now used to initialize the database.
+ * @author Nicholas Blair
  */
+@Deprecated
 public final class InitializeSchedulingAssistantDatabase {
 
 	public static final String CONFIG = System.getProperty(
