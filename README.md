@@ -32,7 +32,12 @@ You can find complete directions for starting up the Bedework Quickstart [on the
 
 To start Bedework Sometime, simply execute:
 
-> mvn install jetty:run
+> mvn install jetty:run-war
+
+The application will now be running at [http://localhost:8080/scheduling-assistant/](http://localhost:8080/scheduling-assistant/).
+
+The *run-war* goal is required. The *run* goal will not work because it loads content from src/main/webapp only, which does not
+contain the static assets provided by the Jasig Resource Server.
 
 If you would like to connect a debugger, use the following command instead:
 

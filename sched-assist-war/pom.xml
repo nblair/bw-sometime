@@ -215,6 +215,9 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
 					<skip>false</skip>
+					<webApp>
+						<contextPath>/scheduling-assistant</contextPath>
+					</webApp>
 					<contextXml>${basedir}/src/etc/jetty-ds.xml</contextXml>
 					<!-- jvmArgs works with jetty:run-forked; have to repeat spring.profiles.active System property -->
 					<jvmArgs>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=18888 -Xnoagent -Dspring.profiles.active=${activeProfiles}</jvmArgs>
