@@ -2,7 +2,7 @@
 <Configure id="wac" class="org.eclipse.jetty.webapp.WebAppContext">
   	<New id="SchedulingAssistantDatabase" class="org.eclipse.jetty.plus.jndi.Resource">
 	   <Arg></Arg>
-	   <Arg>jdbc/SchedulingAssistantDatabase</Arg>
+	   <Arg>CalendarDS</Arg>
 	   <Arg>
 	     <New class="com.zaxxer.hikari.HikariDataSource">
 	       <Arg>

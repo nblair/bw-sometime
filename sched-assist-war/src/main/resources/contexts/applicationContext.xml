@@ -64,16 +64,7 @@
 		</property>
 	</bean>
 	
-	<!-- begin section 1: database and owner components -->
 	<bean id="ownerAuthorization" class="org.jasig.schedassist.impl.owner.DefaultOwnerAuthorizationImpl"/>
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="jdbc/SchedulingAssistantDatabase" />
-	</bean>
-	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-  		<property name="dataSource" ref="dataSource"/>
-	</bean> 
-	<tx:annotation-driven transaction-manager="txManager" />
-	<!-- end section 1: database -->
 
 	<!-- begin caching -->
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
