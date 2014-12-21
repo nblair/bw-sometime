@@ -36,9 +36,6 @@
 	<!-- This Spring context defines all CalDAV server specific beans -->
 	
 	<!--  in this example, implementations compatible for Bedework are chosen -->
-	<bean id="caldavHost" class="java.net.URI">
-		<constructor-arg><value>${caldav.host}</value></constructor-arg>
-	</bean>
 	<bean class="org.jasig.schedassist.impl.caldav.DefaultCaldavDialectImpl"/>
 	
 	<!-- BEGIN: Bedework Specific beans -->

@@ -26,8 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import javax.annotation.Resource;
-
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.component.VEvent;
 import net.fortuna.ical4j.model.property.ProdId;
@@ -40,6 +38,7 @@ import org.apache.http.entity.StringEntity;
 import org.jasig.schedassist.model.ICalendarAccount;
 import org.jasig.schedassist.model.IEventUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * Class to encapsulate generation of the dialect between the scheduling assistant
@@ -113,11 +112,18 @@ public class DefaultCaldavDialectImpl implements CaldavDialect{
 		return this.caldavHost;
 	}
 	/**
-	 * Annotated with {@link Resource} to allow injection by name.
-	 * 
+	 * @see URI#create(String)
 	 * @param caldavHost the caldavHost to set
+	 * @throws IllegalArgumentException if the argument is not a valid {@link URI}
 	 */
-	@Resource
+	@Value("${caldav.host}")
+	public void setCaldavHost(String caldavHost) {
+		setCaldavHost(URI.create(caldavHost));
+	}
+	/**
+	 * 
+	 * @param caldavHost
+	 */
 	public void setCaldavHost(URI caldavHost) {
 		this.caldavHost = caldavHost;
 	}
