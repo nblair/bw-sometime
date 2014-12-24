@@ -6,7 +6,6 @@ package org.bedework.sometime.web.configuration;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.bedework.sometime.database.migrations.FlywayDatabaseMigrations;
@@ -33,7 +32,7 @@ import org.springframework.core.env.Environment;
 public class DatabaseMigrationConfiguration {
 
 	private static final List<String> SUPPORTED_DATABASES = Arrays.asList("hsqldb", "postgresql", "oracle");
-	@Inject
+	@Autowired
 	private Environment environment;
 	/**
 	 * 
