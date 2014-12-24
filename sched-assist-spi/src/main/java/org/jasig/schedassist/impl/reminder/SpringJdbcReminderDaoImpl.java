@@ -48,7 +48,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version $Id: SpringJdbcReminderDaoImpl.java $
  */
 @Repository
-class SpringJdbcReminderDaoImpl implements ReminderDao {
+public class SpringJdbcReminderDaoImpl implements ReminderDao {
 
 	private SimpleJdbcTemplate simpleJdbcTemplate;
 	private DataFieldMaxValueIncrementer reminderIdSequence;

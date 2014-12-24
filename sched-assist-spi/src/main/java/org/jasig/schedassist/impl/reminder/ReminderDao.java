@@ -35,7 +35,7 @@ import org.jasig.schedassist.model.IScheduleOwner;
  * @author Nicholas Blair
  * @version $Id: ReminderDao.java $
  */
-interface ReminderDao {
+public interface ReminderDao {
 
 	/**
 	 * 
