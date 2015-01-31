@@ -1,0 +1,3 @@
+insert into owners (internal_id,external_unique_id,username) values (55055,'carlos.alonso','losalo') ;
+insert into resources (resource_id,name,description,owner_id,mail) values (77077,'bibgab1','Biblioteca Gabinete 1',55055,'biblioteca@unavarra.es');
+insert into resources (resource_id,name,description,owner_id,mail) values (77078,'bibdoc1','Biblioteca Gabinete Doctorado 1',55055,'biblioteca@unavarra.es');
