@@ -13,8 +13,8 @@
 	<properties>
 		<!-- Default properties are used in the event 'flyway.properties' is not available -->
 		<flyway.driver>org.hsqldb.jdbcDriver</flyway.driver>
-		<flyway.url>jdbc:hsqldb:file:${project.build.directory}/hsqldb/testdb?default_schema=bw_sometime;shutdown=true</flyway.url>
-		<flyway.username>sa</flyway.username>
+		<flyway.url>jdbc:hsqldb:file:${project.build.directory}/hsqldb/sometime;shutdown=true</flyway.url>
+		<flyway.user>sa</flyway.user>
 		<flyway.password></flyway.password>
 	</properties>
 	
