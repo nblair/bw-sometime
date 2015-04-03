@@ -23,6 +23,7 @@
 		<module>sched-assist-portlet</module>
 		<module>sched-assist-spi-caldav-integrationtest</module>
 		<module>bw-sometime-database</module>
+		<module>bw-sometime-quickstart-ear</module>
 	</modules>
 
 	<issueManagement>
@@ -461,6 +462,11 @@
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ear-plugin</artifactId>
+					<version>2.10</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>2.1.2</version>
 				</plugin>
@@ -489,6 +495,11 @@
 					</executions>
 				</plugin>
 				<plugin>
+					<groupId>org.codehaus.cargo</groupId>
+					<artifactId>cargo-maven2-plugin</artifactId>
+					<version>1.4.12</version>
+				</plugin>
+				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
 					<version>9.2.1.v20140609</version>
@@ -510,6 +521,13 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
 				</configuration>
 			</plugin>
 			<plugin>
